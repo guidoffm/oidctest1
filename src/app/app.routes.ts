@@ -28,7 +28,6 @@ export const routes: Routes = [
     },
     {
         path: 'callback',
-        component: CallbackComponent,
-        canActivate: [AutoLoginPartialRoutesGuard]
+        component: CallbackComponent
     }
 ];

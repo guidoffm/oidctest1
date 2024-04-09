@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-callback',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './callback.component.html',
   styleUrl: './callback.component.css'
 })
-export class CallbackComponent {
+export class CallbackComponent implements OnInit{
+  private readonly oidcSecurityService = inject(OidcSecurityService);
 
+  ngOnInit(): void {
+    this.oidcSecurityService
+      .checkAuth()
+      .subscribe(({ isAuthenticated, userData, accessToken }) => {
+        // ...
+      });
+  }
 }

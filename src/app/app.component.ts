@@ -14,12 +14,13 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.oidcSecurityService
-    //   .checkAuth()
-    //   .subscribe(({ isAuthenticated, userData, accessToken }) => {
-    //     // ...
-    //   });
+    this.oidcSecurityService
+      .checkAuth()
+      .subscribe(({ isAuthenticated, userData, accessToken }) => {
+        // ...
+      });
   }
+
   title = 'oidctest1';
 
 }

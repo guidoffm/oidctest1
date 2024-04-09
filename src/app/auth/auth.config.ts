@@ -2,11 +2,11 @@ import { PassedInitialConfig } from 'angular-auth-oidc-client';
 
 export const authConfig: PassedInitialConfig = {
   config: {
-    authority: '',
-    redirectUrl: window.location.origin,
+    authority: 'https://idsvr4.azurewebsites.net',
+    redirectUrl: window.location.origin + '/callback',
     postLogoutRedirectUri: window.location.origin,
-    clientId: 'please-enter-clientId',
-    scope: 'please-enter-scopes', // 'openid profile offline_access ' + your scopes
+    clientId: 'spa',
+    scope: 'openid profile offline_access', // 'openid profile offline_access ' + your scopes
     responseType: 'code',
     silentRenew: true,
     useRefreshToken: true,
