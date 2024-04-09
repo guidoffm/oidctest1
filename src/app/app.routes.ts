@@ -4,6 +4,7 @@ import { AutoLoginPartialRoutesGuard } from 'angular-auth-oidc-client';
 import { FooComponent } from './foo/foo.component';
 import { BarComponent } from './bar/bar.component';
 import { CallbackComponent } from './callback/callback.component';
+import { ContainerComponent } from './container/container.component';
 
 export const routes: Routes = [
     // {
@@ -13,19 +14,27 @@ export const routes: Routes = [
     // },
     {
         path: '',
-        component: HomeComponent,
-        canActivate: [AutoLoginPartialRoutesGuard]
+        component: ContainerComponent,
+        canActivate: [AutoLoginPartialRoutesGuard],
+        children: [
+            {
+                path: '',
+                component: HomeComponent,
+                // canActivate: [AutoLoginPartialRoutesGuard]
+            },
+            {
+                path: 'foo',
+                component: FooComponent,
+                // canActivate: [AutoLoginPartialRoutesGuard]
+            },
+            {
+                path: 'bar',
+                component: BarComponent,
+                // canActivate: [AutoLoginPartialRoutesGuard]
+            },
+        ]
     },
-    {
-        path: 'foo',
-        component: FooComponent,
-        canActivate: [AutoLoginPartialRoutesGuard]
-    },
-    {
-        path: 'bar',
-        component: BarComponent,
-        canActivate: [AutoLoginPartialRoutesGuard]
-    },
+    
     {
         path: 'callback',
         component: CallbackComponent
