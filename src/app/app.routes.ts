@@ -14,14 +14,19 @@ export const routes: Routes = [
     // },
     {
         path: '',
+        component: HomeComponent,
+        // canActivate: [AutoLoginPartialRoutesGuard]
+    },
+    {
+        path: 'p',
         component: ContainerComponent,
         canActivate: [AutoLoginPartialRoutesGuard],
         children: [
-            {
-                path: '',
-                component: HomeComponent,
-                // canActivate: [AutoLoginPartialRoutesGuard]
-            },
+            // {
+            //     path: '',
+            //     component: HomeComponent,
+            //     // canActivate: [AutoLoginPartialRoutesGuard]
+            // },
             {
                 path: 'foo',
                 component: FooComponent,
