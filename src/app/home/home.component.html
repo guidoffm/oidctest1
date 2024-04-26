@@ -1,5 +1,41 @@
-<div style="width: 500px; height: 300px; background-color: aqua; padding: 20px;">
-    <h1>Home</h1>
-    <p>home works!</p>
-</div>
+<nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="p/foo">Foo</a>
+    <a routerLink="p/bar">Bar</a>
+    <a *ngIf="oidcSecurityService.isAuthenticated()|async" [routerLink]="[]" (click)="logout()">Logout</a>
+</nav>
+<div>
+    <table>
+        <tr>
+            <td>IsAuthorized</td>
+            <td>{{isAuthenticated|async}}</td>
+        </tr>
+        <ng-container *ngIf="oidcSecurityService.getUserData()|async as userData">
+            <tr>
+                <td>Name</td>
+                <td>{{userData.name}}</td>
+            </tr>
+            <tr>
+                <td>Given Name</td>
+                <td>{{userData.given_name}}</td>
+            </tr>
+            <tr>
+                <td>Family Name</td>
+                <td>{{userData.family_name}}</td>
+            </tr>
+            <tr>
+                <td>Website</td>
+                <td>{{userData.website}}</td>
+            </tr>
+            <tr>
+                <td>Sub</td>
+                <td>{{userData.sub}}</td>
+            </tr>
+        </ng-container>
+    </table>
 
+</div>
+<div style="width: 500px; height: 400px; background-color: aqua; padding: 20px;">
+    <h1>Home</h1>
+    <router-outlet></router-outlet>
+</div>
