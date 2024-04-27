@@ -28,14 +28,15 @@ export class HomeComponent implements OnDestroy {
   async logout() {
     console.log('logout');
     await this.router.navigate(['/'])
-    this.logoutSubscription = this.oidcSecurityService.logoff(undefined, {
-      customParams: {
-        // id_token_hint: this.oidcSecurityService.getIdToken(),
-        LogoutPath: '/',
-        PostLogoutRedirectUri: '/'
-      },
-      logoffMethod: 'POST'
-    }).subscribe((result) => console.log(result));;
+    // this.logoutSubscription = this.oidcSecurityService.logoff(undefined, {
+    //   // customParams: {
+    //   //   // id_token_hint: this.oidcSecurityService.getIdToken(),
+    //   //   LogoutPath: '/',
+    //   //   PostLogoutRedirectUri: '/'
+    //   // },
+    //   logoffMethod: 'POST'
+    // }).subscribe((result) => console.log('Logoff result:', result));
+    this.logoutSubscription = this.oidcSecurityService.logoff().subscribe((result) => console.log('Logoff result:', result));
   }
 
   get isAuthenticated() {

@@ -1,7 +1,7 @@
-import { PassedInitialConfig } from 'angular-auth-oidc-client';
+import { LogLevel, PassedInitialConfig } from 'angular-auth-oidc-client';
 
 export const authConfig: PassedInitialConfig = {
-  config: {
+  config: [{
     authority: 'https://idsvr4.azurewebsites.net',
     redirectUrl: window.location.origin,
     postLogoutRedirectUri: window.location.origin,
@@ -11,5 +11,7 @@ export const authConfig: PassedInitialConfig = {
     silentRenew: true,
     useRefreshToken: true,
     renewTimeBeforeTokenExpiresInSeconds: 30,
-  }
+    logLevel: LogLevel.Debug,
+    configId: '0-spa'
+  }]
 }
