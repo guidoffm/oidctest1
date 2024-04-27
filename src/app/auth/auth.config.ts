@@ -4,7 +4,7 @@ export const authConfig: PassedInitialConfig = {
   config: {
     authority: 'https://idsvr4.azurewebsites.net',
     redirectUrl: window.location.origin,
-    postLogoutRedirectUri: 'http://localhost:4200',
+    postLogoutRedirectUri: window.location.origin,
     clientId: 'spa',
     scope: 'openid profile offline_access', // 'openid profile offline_access ' + your scopes
     responseType: 'code',
