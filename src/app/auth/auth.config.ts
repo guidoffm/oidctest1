@@ -12,6 +12,7 @@ export const authConfig: PassedInitialConfig = {
     useRefreshToken: true,
     renewTimeBeforeTokenExpiresInSeconds: 30,
     logLevel: LogLevel.Debug,
-    configId: '0-spa'
+    configId: '0-spa',
+    secureRoutes: ['/api']
   }]
 }
