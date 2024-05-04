@@ -16,6 +16,9 @@
             <a [class]="navLinkBarClass" routerLink="p/bar">Bar</a>
           </li>
           <li class="nav-item">
+            <a [class]="navLinkBarClass" routerLink="p/users">Users</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link"  *ngIf="oidcSecurityService.isAuthenticated()|async" [routerLink]="[]" (click)="logout()">Logout</a>
           </li>
           <!-- <li class="nav-item dropdown">
