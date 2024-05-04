@@ -5,6 +5,7 @@ import { FooComponent } from './foo/foo.component';
 import { BarComponent } from './bar/bar.component';
 import { ContainerComponent } from './container/container.component';
 import { UsersComponent } from './users/users.component';
+import { InfoComponent } from './info/info.component';
 
 export const routes: Routes = [
     // {
@@ -30,17 +31,18 @@ export const routes: Routes = [
                     {
                         path: 'foo',
                         component: FooComponent,
-                        // canActivate: [AutoLoginPartialRoutesGuard]
                     },
                     {
                         path: 'bar',
                         component: BarComponent,
-                        // canActivate: [AutoLoginPartialRoutesGuard]
                     },
                     {
                         path: 'users',
                         component: UsersComponent,
-                        // canActivate: [AutoLoginPartialRoutesGuard]
+                    },
+                    {
+                        path: 'info',
+                        component: InfoComponent,
                     },
                 ]
             }
