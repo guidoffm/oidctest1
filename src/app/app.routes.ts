@@ -6,6 +6,7 @@ import { BarComponent } from './bar/bar.component';
 import { ContainerComponent } from './container/container.component';
 import { UsersComponent } from './users/users.component';
 import { InfoComponent } from './info/info.component';
+import { LogoutComponent } from './logout/logout.component';
 
 export const routes: Routes = [
     // {
@@ -16,7 +17,6 @@ export const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
-        // canActivate: [AutoLoginPartialRoutesGuard]
         children: [
             {
                 path: 'p',
@@ -47,5 +47,9 @@ export const routes: Routes = [
                 ]
             }
         ]
+    },
+    {
+        path: 'logout',
+        component: LogoutComponent,
     }
 ];
