@@ -18,7 +18,7 @@ export class FooComponent {
     this.httpClient.get('/api/test', { responseType: 'text' }).subscribe(x => this.output = x);
   }
   callApiTestName() {
-    this.httpClient.get('/api/test/location', { responseType: 'text' }).subscribe(alert);
+    this.httpClient.get('/api/test/location', { responseType: 'text' }).subscribe(x => this.output = x);
   }
 
 }
