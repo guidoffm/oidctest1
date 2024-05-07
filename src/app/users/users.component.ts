@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
     this.callApiUsers();
   }
   users = new Subject<any>();
+
   callApiUsers() {
     this.httpClient.get<any>('/api/users', { responseType: 'json' }).subscribe(x => this.users.next(x.results));
   }

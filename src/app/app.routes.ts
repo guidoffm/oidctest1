@@ -7,6 +7,7 @@ import { ContainerComponent } from './container/container.component';
 import { UsersComponent } from './users/users.component';
 import { InfoComponent } from './info/info.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RadiusComponent } from './radius/radius.component';
 
 export const routes: Routes = [
     // {
@@ -43,6 +44,10 @@ export const routes: Routes = [
                     {
                         path: 'info',
                         component: InfoComponent,
+                    },
+                    {
+                        path: 'radius',
+                        component: RadiusComponent,
                     },
                 ]
             }

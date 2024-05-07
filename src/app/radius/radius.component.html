@@ -1,0 +1,33 @@
+<h2>Umkreissuche</h2>
+
+<form>
+    <div class="form-group">
+        <label for="zip">PLZ</label>
+        <input type="text" class="form-control" id="zip" name="zip" placeholder="PLZ" [(ngModel)]="zip" [ngbTypeahead]="filterZipcodes">
+    </div>
+    <div class="form-group">
+        <label for="radius">Radius [km]</label>
+        <input type="number" class="form-control" id="radius" name="radius" placeholder="Radius in km" [(ngModel)]="radius">
+    </div>
+    <button style="margin-top: 20px;" type="submit" class="btn btn-primary" (click)="search()">Suchen</button>
+</form>
+
+<div>
+    <h2>Users</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>PLZ</th>
+            <th>Stadt</th>
+            <th>Entfernung [km]</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hit of (hits|async)">
+            <!-- <td>{{hit.key}}</td> -->
+            <td>{{hit.plz}}</td>
+            <td>{{hit.ort}}</td>
+            <td>{{hit.distance/1000}}</td>
+        </tr>
+</table>
+</div>

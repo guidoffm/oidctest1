@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
     { title: 'Bar', fragment: '/p/bar' },
     { title: 'Info', fragment: '/p/info' },
     { title: 'Users', fragment: '/p/users' },
+    { title: 'Radius', fragment: '/p/radius' },
     { title: 'Logout', fragment: '/logout' }
   ];
 
