@@ -1,33 +1,38 @@
-<h2>Umkreissuche</h2>
+<h2>Umkreissuche für Postleitzahlen in Deutschland</h2>
 
 <form>
     <div class="form-group">
         <label for="zip">PLZ</label>
-        <input type="text" class="form-control" id="zip" name="zip" placeholder="PLZ" [(ngModel)]="zip" [ngbTypeahead]="filterZipcodes">
+        <input type="text" class="form-control" id="zip" name="zip" placeholder="PLZ" [(ngModel)]="zip"
+            [ngbTypeahead]="filterZipcodes">
     </div>
     <div class="form-group">
-        <label for="radius">Radius [km]</label>
-        <input type="number" class="form-control" id="radius" name="radius" placeholder="Radius in km" [(ngModel)]="radius">
+        <label for="radius">Radius [km] (1 bis 100 km)</label>
+        <input type="number" class="form-control" id="radius" name="radius" placeholder="Radius in km"
+            [(ngModel)]="radius">
     </div>
-    <button style="margin-top: 20px;" type="submit" class="btn btn-primary" (click)="search()">Suchen</button>
+    <button style="margin-top: 20px;" type="submit" class="btn btn-primary" (click)="search()"
+        [disabled]="searchDisabled">Suchen</button>
 </form>
-
+@if ((hits|async)) {
 <div>
-    <h2>Users</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>PLZ</th>
-            <th>Stadt</th>
-            <th>Entfernung [km]</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let hit of (hits|async)">
-            <!-- <td>{{hit.key}}</td> -->
-            <td>{{hit.plz}}</td>
-            <td>{{hit.ort}}</td>
-            <td>{{hit.distance/1000}}</td>
-        </tr>
-</table>
+    <table class="table table-striped table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">PLZ</th>
+                <th scope="col">Stadt</th>
+                <th scope="col">Entfernung [km]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (hit of (hits|async); track hit.plz) {
+            <tr>
+                <!-- <td>{{hit.key}}</td> -->
+                <td>{{hit.plz}}</td>
+                <td>{{hit.ort}}</td>
+                <td>{{hit.distance/1000}}</td>
+            </tr>
+            }
+    </table>
 </div>
+}
