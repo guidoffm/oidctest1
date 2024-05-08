@@ -1,12 +1,13 @@
 import { LogLevel, PassedInitialConfig } from 'angular-auth-oidc-client';
 
+const env = (window as any)['env'];
 export const authConfig: PassedInitialConfig = {
   config: [{
-    authority: (window as any)['env']['oidcAuthority'],
+    authority: env['oidcAuthority'],
     redirectUrl: window.location.origin,
     postLogoutRedirectUri: window.location.origin,
-    clientId: (window as any)['env']['oidcClientId'],
-    scope: (window as any)['env']['oidcScope'], // 'openid profile offline_access ' + your scopes
+    clientId: env['oidcClientId'],
+    scope: env['oidcScope'], // 'openid profile offline_access ' + your scopes
     responseType: 'code',
     silentRenew: true,
     useRefreshToken: true,
