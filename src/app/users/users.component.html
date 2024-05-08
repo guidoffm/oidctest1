@@ -12,7 +12,7 @@
     <tbody>
         @for (user of (sortedUsers|async); track user.key) {
         <tr>
-            <td>{{user.key}}</td>
+            <th scope="row">{{user.key}}</th>
             <td>{{user.city}}</td>
             <td>{{user.state}}</td>
             <td>{{user.personId}}</td>
