@@ -2,19 +2,21 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Key</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Person ID</th>
-            <th>Person Org</th>
+            <th scope="col">Key</th>
+            <th scope="col" sortable="city" (sort)="onSort($event)">City</th>
+            <th scope="col" sortable="state" (sort)="onSort($event)">State</th>
+            <th scope="col" sortable="personId" (sort)="onSort($event)">Person ID</th>
+            <th scope="col" sortable="personOrg" (sort)="onSort($event)">Person Org</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of (users|async)">
+        @for (user of (sortedUsers|async); track user.key) {
+        <tr>
             <td>{{user.key}}</td>
-            <td>{{user.data.city}}</td>
-            <td>{{user.data.state}}</td>
-            <td>{{user.data.person.id}}</td>
-            <td>{{user.data.person.org}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.state}}</td>
+            <td>{{user.personId}}</td>
+            <td>{{user.personOrg}}</td>
         </tr>
+        }
 </table>
