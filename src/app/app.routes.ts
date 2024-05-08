@@ -18,41 +18,42 @@ export const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
+    },
+    // children: [
+    {
+        path: 'p',
+        component: ContainerComponent,
+        canActivate: [AutoLoginPartialRoutesGuard],
         children: [
+            // {
+            //     path: '',
+            //     component: HomeComponent,
+            //     // canActivate: [AutoLoginPartialRoutesGuard]
+            // },
+            // {
+            //     path: 'foo',
+            //     component: FooComponent,
+            // },
+            // {
+            //     path: 'bar',
+            //     component: BarComponent,
+            // },
             {
-                path: 'p',
-                component: ContainerComponent,
-                canActivate: [AutoLoginPartialRoutesGuard],
-                children: [
-                    // {
-                    //     path: '',
-                    //     component: HomeComponent,
-                    //     // canActivate: [AutoLoginPartialRoutesGuard]
-                    // },
-                    // {
-                    //     path: 'foo',
-                    //     component: FooComponent,
-                    // },
-                    // {
-                    //     path: 'bar',
-                    //     component: BarComponent,
-                    // },
-                    {
-                        path: 'users',
-                        component: UsersComponent,
-                    },
-                    {
-                        path: 'info',
-                        component: InfoComponent,
-                    },
-                    {
-                        path: 'radius',
-                        component: RadiusComponent,
-                    },
-                ]
-            }
+                path: 'users',
+                component: UsersComponent,
+            },
+            {
+                path: 'info',
+                component: InfoComponent,
+            },
+            {
+                path: 'radius',
+                component: RadiusComponent,
+            },
         ]
     },
+    // ]
+    //     },
     {
         path: 'logout',
         component: LogoutComponent,
