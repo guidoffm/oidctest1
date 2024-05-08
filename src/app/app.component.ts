@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
   readonly router = inject(Router);
   links = [
     { title: 'Home', fragment: '/' },
-    { title: 'Foo', fragment: '/p/foo' },
-    { title: 'Bar', fragment: '/p/bar' },
+    // { title: 'Foo', fragment: '/p/foo' },
+    // { title: 'Bar', fragment: '/p/bar' },
     { title: 'Info', fragment: '/p/info' },
     { title: 'Users', fragment: '/p/users' },
     { title: 'Radius', fragment: '/p/radius' },

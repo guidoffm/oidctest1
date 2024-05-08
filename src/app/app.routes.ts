@@ -29,14 +29,14 @@ export const routes: Routes = [
                     //     component: HomeComponent,
                     //     // canActivate: [AutoLoginPartialRoutesGuard]
                     // },
-                    {
-                        path: 'foo',
-                        component: FooComponent,
-                    },
-                    {
-                        path: 'bar',
-                        component: BarComponent,
-                    },
+                    // {
+                    //     path: 'foo',
+                    //     component: FooComponent,
+                    // },
+                    // {
+                    //     path: 'bar',
+                    //     component: BarComponent,
+                    // },
                     {
                         path: 'users',
                         component: UsersComponent,
